@@ -51,5 +51,5 @@ export class ProjectManagementComponent implements OnInit {
     } else {
       $("input[name='checkbox-item']").attr("checked", false); 
     }
-  }
+   }
 }
