@@ -1,0 +1,44 @@
+
+<div stTable #table='stTable' >
+ 
+    <h4 class="title-title">派工记录</h4>
+
+
+
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th stSort='init_person'>触发人</th>
+        <th stSort='trigger_time'>触发时间</th>
+        <th stSort='describe'>问题描述</th>
+        <th stSort='person_in_charge'>负责人</th>
+        <th stSort='one_hour_decision'>一小时决定</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of table.items;let key = index">
+        <td>{{item.value.init_person}}</td>
+        <td>{{item.value.trigger_time | date:'yyyy/MM/dd'}}</td>
+        <td>{{item.value.describe}}</td>
+        <td>{{item.value.person_in_charge}}</td>
+        <td>{{item.value.one_hour_decision}}</td>
+        
+      </tr>
+    </tbody>
+  </table>
+  <div stPagination #pager="stPagination">
+    <div class="inline">
+      <em >显示从 <em>{{pager.length > 0 ? pager.lowerBoundIndex + 1 : 0}}</em> - <em>{{pager.higherBoundIndex +1}}</em> of <em>{{pager.length}} </em> 条数据
+      </em>
+    </div>
+    <div class="inline">
+      <button class="btn-sm btn-primary" (click)="pager.selectPreviousPage()" [disabled]="!pager.isPreviousPageEnabled()">上一页</button>
+      <button class="btn-sm btn-primary" (click)="pager.selectNextPage()" [disabled]="!pager.isNextPageEnabled()">下一页</button>
+    </div>
+  </div>
+
+
+</div>
+<hr>

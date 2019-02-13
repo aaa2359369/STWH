@@ -1,0 +1,18 @@
+
+.inline{
+    display: inline
+}
+
+.inline button{
+    margin-left: 20px
+}
+th {
+    cursor: pointer;
+}
+.table th{
+    color:rgb(95, 163, 226);
+}
+h4{
+   
+    color:rgb(95, 163, 226);
+}

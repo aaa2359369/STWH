@@ -1,0 +1,105 @@
+<div stTable #table='stTable' >
+        
+    <div class="query_condition">
+        <div class="row query_condition">
+          <div class="col-6 input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">项目经理</span>
+            </div>
+            <input type="text" stFilter='person_in_charge'  class="form-control">
+
+          
+          </div>
+          
+          <div class="col-6 input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">项目类型</span>
+            </div>
+            <input type="text" stFilter='order' class="form-control">
+          </div>
+        </div>
+    
+        <div class="row query_condition">
+            <div class="col-6 input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">计划开始</span>
+              </div>
+
+              <input type="date" class="form-control" stFilterOperator="gt"  stFilterType="date" stFilter="plan_start_time">
+             
+            </div>
+      
+            <div class="col-6 input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">计划结束</span>
+              </div>
+              <input type="date" class="form-control" stFilterOperator="gt"  stFilterType="date" stFilter="plan_end_time">
+             
+            </div>
+          </div>
+    
+          
+          <div class="row query_condition">
+              <div class="col-6 input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">实际开始</span>
+                </div>
+                <input type="date" class="form-control" stFilterOperator="gt"  stFilterType="date" stFilter="actual_start_time">
+             
+              </div>
+        
+              <div class="col-6 input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">计划更新</span>
+                </div>
+                <input type="date" class="form-control" stFilterOperator="gt"  stFilterType="date" stFilter="actual_end_time">
+             
+              </div>
+            </div>
+        </div>
+
+
+
+
+        <h4 class="title-title">生产过程信息</h4>
+
+
+
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th stSort='order_number'>工序号</th>
+        <th stSort='order'>工序</th>
+        <th stSort='plan_start_time'>计划开始</th>
+        <th stSort='plan_end_time'>计划结束</th>
+        <th stSort='actual_start_time'>实际开始</th>
+        <th stSort='actual_end_time'>实际结束</th>
+        <th stSort='person_in_charge'>负责人</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of table.items;let key = index">
+        <td>{{item.value.order_number}}</td>
+        <td>{{item.value.order}}</td>
+        <td>{{item.value.plan_start_time | date:'yyyy/MM/dd'}}</td>
+        <td>{{item.value.plan_end_time| date:'yyyy/MM/dd'}}</td>
+        <td>{{item.value.actual_start_time| date:'yyyy/MM/dd'}}</td>
+        <td>{{item.value.actual_end_time| date:'yyyy/MM/dd'}}</td>
+        <td>{{item.value.person_in_charge}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div stPagination #pager="stPagination">
+    <div class="inline">
+      <em >显示从 <em>{{pager.length > 0 ? pager.lowerBoundIndex + 1 : 0}}</em> - <em>{{pager.higherBoundIndex +1}}</em> of <em>{{pager.length}} </em> 条数据
+      </em>
+    </div>
+    <div class="inline">
+      <button class="btn-sm btn-primary" (click)="pager.selectPreviousPage()" [disabled]="!pager.isPreviousPageEnabled()">上一页</button>
+      <button class="btn-sm btn-primary" (click)="pager.selectNextPage()" [disabled]="!pager.isNextPageEnabled()">下一页</button>
+    </div>
+  </div>
+
+
+</div>

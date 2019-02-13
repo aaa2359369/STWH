@@ -1,0 +1,109 @@
+<div>
+    <div class="side-bar">
+        <ul>
+          <li>
+            <a [routerLink]="[ '/index']" class="item">首页</a>
+          </li>
+          <li>
+            <a href="#productionPlan" class="fa fa-arrow-down" data-toggle="collapse"></a>
+            
+            <a [routerLink]="[ '/productionPlan']" class="item-sub">生产计划</a>
+
+
+            <div id="productionPlan" class="collapse">
+              <ul>
+                  <li>
+                    <a href="#projectManagement" class="fa fa-arrow-down" data-toggle="collapse"></a>
+                    <a [routerLink]="[ '/projectManagement']">项目管理</a>
+                    
+                    <div id="projectManagement" class="collapse">
+                      <ul>
+                          <li>
+                            <a href="###">项目详细信息</a>
+                          </li>
+                          <li>
+                            <a href="###">导入项目</a>
+                          </li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li>
+                    <a href="#productionPlanManagement" class="fa fa-arrow-down" data-toggle="collapse"></a>
+                    <a href="###" class="item-sub">生产计划管理</a>
+                    <div id="productionPlanManagement" class="collapse">
+                      <ul>
+                          <li>
+                            <a href="###">计划详细信息</a>
+                          </li>
+                          <li>
+                            <a href="###">导入计划</a>
+                          </li>
+                      </ul>
+                    </div>
+                  </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <a href="###" class="item">车间计划</a>
+          </li>
+          <li>
+            <a href="#qualityData" class="fa fa-arrow-down" data-toggle="collapse"></a>
+            <a href="###" class="item-sub">质量数据</a>
+            <div id="qualityData" class="collapse">
+              <ul>
+                  <li>
+                    <a href="">进料检验</a>
+                  </li>
+                  <li>
+                    <a href="">过程检验</a>
+                  </li>
+                  <li>
+                    <a href="">NCR维护</a>
+                  </li>
+                  <li>
+                    <a href="">PunchList</a>
+                  </li>
+                  <li>
+                    <a href="">非NCR记录</a>
+                  </li>
+                </ul>
+            </div>
+          </li>
+          <li>
+            <a href="#basicData" class="fa fa-arrow-down" data-toggle="collapse"></a>
+            <a href="###" class="item-sub">基础数据</a>
+            <div id="basicData" class="collapse">
+              <ul>
+                  <li>
+                    <a href="">工序配置</a>
+                  </li>
+                  <li>
+                    <a href="">工位配置</a>
+                  </li>
+                  <li>
+                    <a href="">工步配置</a>
+                  </li>
+                  <li>
+                    <a href="">进料检验模板配置</a>
+                  </li>
+                  <li>
+                    <a href="">过程检验项</a>
+                  </li>
+                  <li>
+                    <a href="">过程检验目标项</a>
+                  </li>
+                  <li>
+                    <a href="">供应商列表</a>
+                  </li>
+                </ul>
+            </div>
+          </li>
+        </ul>
+    </div>
+
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+    
+</div>

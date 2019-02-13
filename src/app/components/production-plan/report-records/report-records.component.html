@@ -1,0 +1,48 @@
+
+<div stTable #table='stTable' >
+ 
+    <h4 class="title-title">派工记录</h4>
+
+
+
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th stSort='order'>序号</th>
+        <th stSort='operator'>操作人</th>
+        <th stSort=' workstation'>工位</th>
+        <th stSort='start_time'>开工时间</th>
+        <th stSort='report_time'>报工时间</th>
+        <th stSort='teammate'>团队成员</th>
+        <th stSort='report_content'>报工内容</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of table.items;let key = index">
+        <td>{{item.value.order}}</td>
+        <td>{{item.value.operator}}</td>
+        <td>{{item.value.workstation}}</td>
+        <td>{{item.value.start_time | date:'yyyy/MM/dd'}}</td>
+        <td>{{item.value.report_time | date:'yyyy/MM/dd'}}</td>
+        <td>{{item.value.teammate}}</td>
+        <td>{{item.value.report_content}}</td>
+        
+      </tr>
+    </tbody>
+  </table>
+  <div stPagination #pager="stPagination">
+    <div class="inline">
+      <em >显示从 <em>{{pager.length > 0 ? pager.lowerBoundIndex + 1 : 0}}</em> - <em>{{pager.higherBoundIndex +1}}</em> of <em>{{pager.length}} </em> 条数据
+      </em>
+    </div>
+    <div class="inline">
+      <button class="btn-sm btn-primary" (click)="pager.selectPreviousPage()" [disabled]="!pager.isPreviousPageEnabled()">上一页</button>
+      <button class="btn-sm btn-primary" (click)="pager.selectNextPage()" [disabled]="!pager.isNextPageEnabled()">下一页</button>
+    </div>
+  </div>
+
+
+</div>
+<hr>

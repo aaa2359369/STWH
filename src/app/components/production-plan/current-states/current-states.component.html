@@ -1,0 +1,9 @@
+<div class="current_state ">
+    <h4>当前状态</h4>
+    <hr>
+ <div class="state_group ">
+   <span *ngFor="let item of current_states">
+       <button class="btn" [ngClass]="{'btn-success': item.state=='FINISH','btn-warning':item.state=='PROCESS','btn-secondary':item.state=='WAIT'}">{{item.describe}}</button>
+   </span>
+  
+<hr>

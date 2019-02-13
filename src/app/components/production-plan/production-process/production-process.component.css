@@ -1,0 +1,47 @@
+.table th{
+    color:rgb(95, 163, 226);
+}
+
+.inline{
+    display: inline
+}
+
+.inline button{
+    margin-left: 20px
+}
+
+h4{
+    margin-top: 20px;
+    color:rgb(95, 163, 226);
+}
+
+
+.query_condition{
+    margin-top: 20px
+ }
+ 
+ .state_group button{
+     margin-left: 30px;
+ }
+ 
+ 
+.input-group-text{
+    color:rgb(95, 163, 226);
+}
+
+th {
+    cursor: pointer;
+}
+
+.loading-indicator{
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9;
+    display: flex;
+    background: rgba(250,250,250, 0.8);
+    align-items: center
+  }
+ 

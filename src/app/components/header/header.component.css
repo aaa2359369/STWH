@@ -1,0 +1,40 @@
+header{
+    max-width: 3000px;
+    background: #fff;
+    text-align:center;
+}
+
+.header-left{
+    float:left;
+    width:17%;
+    height: 70px;
+    padding: 5px 5px;
+    background: #fff;
+}
+
+.header-left img{
+    width: 100%;
+    height: 60px;
+}
+
+.header-right{
+    float:right;
+    width:82%;
+    border:1px solid #000;
+    height: 70px;
+    background: #fff;
+}
+
+.header-right h2{
+    display: inline-block;
+    margin-top:12px;
+}
+.header-right a{
+    display: inline-block;
+    float: right;
+    margin-right: 100px;
+    margin-top:20px;
+    color: #000;
+
+}
+

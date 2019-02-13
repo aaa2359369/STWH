@@ -1,0 +1,306 @@
+
+<div stTable #table='stTable'>
+  <div class="form-inline">
+      <div class="form-group search-item">
+        <label>项目编号 : </label>
+        <input type="text" class="form-control" stFilter='id'>
+      </div>
+      <div class="form-group search-item">
+          <label>经理 : </label>
+          <input type="text" class="form-control" stFilter='manager'>
+      </div>
+
+      <div class="menu">
+          <button class="menu-item btn" data-toggle="modal" data-target="#importProject">项目导入</button>
+          <button class="menu-item btn">导出Excel</button>
+          <button class="menu-item btn" (click)="deleteProject()">删除</button>    
+      </div>
+      <!-- <button class="menu-item btn" data-toggle="modal" data-target="#detail">查看详细</button> -->
+
+      <div class="modal fade" id="importProject">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+         
+              <!-- 模态框头部 -->
+              <div class="modal-header">
+                <h4 class="modal-title">导入项目</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+         
+              <!-- 模态框主体 -->
+              <div class="modal-body">
+                <div class="form-inline modal-import">
+                  <div class="form-group">
+                    <label class="modal-import-label">选择文件 : </label>
+                    <input type="text" class="form-control modal-import-text">
+                  </div>
+                  <div class="form-group modal-import-file">
+                    <input type="file" id="inputfile">
+                  </div>
+                </div>
+                <div class="modal-import-submit">
+                  <button type="submit" class="btn btn-default">上传</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      <div class="modal fade" id="detail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg" style="width: 800px;">
+              <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="modal-title">项目详情</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+                  
+                  <div class="modal-detail">
+                    <div class="form-inline modal-detail-item">
+                        <div class="form-group modal-detail-item-left">
+                          <label style="font-size:13px;">Scheduled Output Month : </label>
+                          <input type="text" class="form-control" disabled="disabled">
+                        </div>
+                        <div class="form-group modal-detail-item-right">
+                          <label style="font-size:13px;">Plan Start : </label>
+                          <input type="text" class="form-control" disabled="disabled">
+                        </div>
+                    </div>
+                    <div class="form-inline modal-detail-item">
+                        <div class="form-group modal-detail-item-left">
+                          <label style="font-size:13px;">Order No. : </label>
+                          <input type="text" class="form-control" disabled="disabled">
+                        </div>
+                        <div class="form-group modal-detail-item-right">
+                          <label style="font-size:13px;">Actual Start : </label>
+                          <input type="text" class="form-control" disabled="disabled">
+                        </div>
+                    </div>
+                    <div class="form-inline modal-detail-item">
+                        <div class="form-group modal-detail-item-left">
+                          <label style="font-size:13px;">Project ID : </label>
+                          <input type="text" class="form-control" disabled="disabled">
+                        </div>
+                        <div class="form-group modal-detail-item-right">
+                          <label style="font-size:13px;">Plan Finish PM300 : </label>
+                          <input type="text" class="form-control" disabled="disabled">
+                        </div>
+                    </div>
+                    <div class="form-inline modal-detail-item">
+                        <div class="form-group modal-detail-item-left">
+                          <label style="font-size:13px;">ProjectName : </label>
+                          <input type="text" class="form-control" disabled="disabled">
+                        </div>
+                        <div class="form-group modal-detail-item-right">
+                          <label style="font-size:13px;">Actual Finish PM300: </label>
+                          <input type="text" class="form-control" disabled="disabled">
+                        </div>
+                    </div>
+                    <div class="form-inline modal-detail-item">
+                        <div class="form-group modal-detail-item-left">
+                          <label style="font-size:13px;">PM : </label>
+                          <input type="text" class="form-control" disabled="disabled">
+                        </div>
+                        <div class="form-group modal-detail-item-right">
+                          <label style="font-size:13px;">"Theoretical LT" : </label>
+                          <input type="text" class="form-control" disabled="disabled">
+                        </div>
+                    </div>
+                    <div class="form-inline modal-detail-item">
+                        <div class="form-group modal-detail-item-left">
+                          <label style="font-size:13px;">Type : </label>
+                          <input type="text" class="form-control" disabled="disabled">
+                        </div>
+                        <div class="form-group modal-detail-item-right">
+                          <label style="font-size:13px;">Actual LT  : </label>
+                          <input type="text" class="form-control" disabled="disabled">
+                        </div>
+                    </div>
+                    <div class="form-inline modal-detail-item">
+                        <div class="form-group modal-detail-item-left">
+                          <label style="font-size:13px;">"Capacity(MVA)"	kV : </label>
+                          <input type="text" class="form-control" disabled="disabled">
+                        </div>
+                        <div class="form-group modal-detail-item-right">
+                          <label style="font-size:13px;">计划变更原因 : </label>
+                          <input type="text" class="form-control" disabled="disabled">
+                        </div>
+                    </div>
+                    <div class="form-inline modal-detail-item">
+                        <div class="form-group modal-detail-item-left">
+                          <label style="font-size:13px;">Structure Type : </label>
+                          <input type="text" class="form-control" disabled="disabled">
+                        </div>
+                        <div class="form-group modal-detail-item-right">
+                          <label style="font-size:13px;">备用油比例  : </label>
+                          <input type="text" class="form-control" disabled="disabled">
+                        </div>
+                    </div>
+                    <div class="form-inline modal-detail-item">
+                        <div class="form-group modal-detail-item-left">
+                          <label style="font-size:13px;">订单类型 : </label>
+                          <input type="text" class="form-control" disabled="disabled">
+                        </div>
+                        <div class="form-group modal-detail-item-right">
+                          <label style="font-size:13px;">带油运输  : </label>
+                          <input type="text" class="form-control" disabled="disabled">
+                        </div>
+                    </div>
+                    <div class="form-inline modal-detail-item">
+                        <div class="form-group modal-detail-item-left">
+                          <label style="font-size:13px;">Contract : </label>
+                          <input type="text" class="form-control" disabled="disabled">
+                        </div>
+                        <div class="form-group modal-detail-item-right">
+                          <label style="font-size:13px;">冷却方式 : </label>
+                          <input type="text" class="form-control" disabled="disabled">
+                        </div>
+                    </div>
+                    <div class="form-inline modal-detail-item">
+                        <div class="form-group modal-detail-item-left">
+                          <label style="font-size:13px;">Technical contract : </label>
+                          <input type="text" class="form-control" disabled="disabled">
+                        </div>
+                        <div class="form-group modal-detail-item-right">
+                          <label style="font-size:13px;">用油型号（下拉） : </label>
+                          <input type="text" class="form-control" disabled="disabled">
+                        </div>
+                    </div>
+                    <div class="form-inline modal-detail-item">
+                        <div class="form-group modal-detail-item-left">
+                          <label style="font-size:13px;">Commercial Contract : </label>
+                          <input type="text" class="form-control" disabled="disabled">
+                        </div>
+                        <div class="form-group modal-detail-item-right">
+                          <label style="font-size:13px;">储油柜形式 : </label>
+                          <input type="text" class="form-control" disabled="disabled">
+                        </div>
+                    </div>
+                    <div class="form-inline modal-detail-item">
+                        <div class="form-group modal-detail-item-left">
+                          <label style="font-size:13px;">Down payment : </label>
+                          <input type="text" class="form-control" disabled="disabled">
+                        </div>
+                        <div class="form-group modal-detail-item-right">
+                          <label style="font-size:13px;">"省份/国家" : </label>
+                          <input type="text" class="form-control" disabled="disabled">
+                        </div>
+                    </div>
+                    <div class="form-inline modal-detail-item">
+                        <div class="form-group modal-detail-item-left">
+                          <label style="font-size:13px;">Quotation No : </label>
+                          <input type="text" class="form-control" disabled="disabled">
+                        </div>
+                        <div class="form-group modal-detail-item-right">
+                          <label style="font-size:13px;">地/市  : </label>
+                          <input type="text" class="form-control" disabled="disabled">
+                        </div>
+                    </div>
+                    <div class="form-inline modal-detail-item">
+                        <div class="form-group modal-detail-item-left">
+                          <label style="font-size:13px;">合同签订日期 : </label>
+                          <input type="text" class="form-control" disabled="disabled">
+                        </div>
+                        <div class="form-group modal-detail-item-right">
+                          <label style="font-size:13px;">详细交货地点 : </label>
+                          <input type="text" class="form-control" disabled="disabled">
+                        </div>
+                    </div>
+                    <div class="form-inline modal-detail-item">
+                        <div class="form-group modal-detail-item-left">
+                          <label style="font-size:13px;">QG2 Date : </label>
+                          <input type="text" class="form-control" disabled="disabled">
+                        </div>
+                        <div class="form-group modal-detail-item-right">
+                          <label style="font-size:13px;">交付类型 : </label>
+                          <input type="text" class="form-control" disabled="disabled">
+                        </div>
+                    </div>
+                    <div class="form-inline modal-detail-item">
+                        <div class="form-group modal-detail-item-left">
+                          <label style="font-size:13px;">提图时间 : </label>
+                          <input type="text" class="form-control" disabled="disabled">
+                        </div>
+                        <div class="form-group modal-detail-item-right">
+                          <label style="font-size:13px;">合同交货期 : </label>
+                          <input type="text" class="form-control" disabled="disabled">
+                        </div>
+                    </div>
+                    <div class="form-inline modal-detail-item">
+                        <div class="form-group modal-detail-item-left">
+                          <label style="font-size:13px;">Wiring Drawing Confirm : </label>
+                          <input type="text" class="form-control" disabled="disabled">
+                        </div>
+                        <div class="form-group modal-detail-item-right">
+                          <label style="font-size:13px;">Plan ex-work  : </label>
+                          <input type="text" class="form-control" disabled="disabled">
+                        </div>
+                    </div>
+                    <div class="form-inline modal-detail-item">
+                        <div class="form-group modal-detail-item-left">
+                          <label style="font-size:13px;">Cooling Drawing Confirm : </label>
+                          <input type="text" class="form-control" disabled="disabled">
+                        </div>
+                        <div class="form-group modal-detail-item-right">
+                          <label style="font-size:13px;">Actual ex-work : </label>
+                          <input type="text" class="form-control" disabled="disabled">
+                        </div>
+                    </div>
+                    <div class="form-inline modal-detail-item">
+                        <div class="form-group modal-detail-item-left">
+                          <label style="font-size:13px;">Special Material	项目状态 : </label>
+                          <input type="text" class="form-control" disabled="disabled">
+                        </div>
+                        <div class="form-group modal-detail-item-right">
+                          <label style="font-size:13px;">备注: </label>
+                          <input type="text" class="form-control" disabled="disabled">
+                        </div>
+                    </div>
+                  </div>
+              </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+      </div>
+  </div>
+     
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>
+          <input type="checkbox" id="checkbox-id" (click)="selectAll()">
+        </th>
+        <th>项目编号</th>
+        <th>项目名称</th>
+        <th>项目类型</th>
+        <th>项目经理</th>
+        <th>计划开始</th>
+        <th>计划结束</th>
+        <th>实际开始</th>
+        <th>实际结束</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of table.items">
+        <td>
+            <input name="checkbox-item" value={{item.value.id}} type="checkbox">
+        </td>
+        <td>{{item.value.id}}</td>
+        <td><a href="#detail" data-toggle="modal">{{item.value.name}}</a></td>
+        <td>{{item.value.typ}}</td>
+        <td>{{item.value.manager}}</td>
+        <td>{{item.value.plan_start | date:'yyyy/MM/dd' }}</td>
+        <td>{{item.value.plan_end | date:'yyyy/MM/dd'}}</td>
+        <td>{{item.value.actual_start | date:'yyyy/MM/dd'}}</td>
+        <td>{{item.value.actual_end | date:'yyyy/MM/dd'}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div stPagination #pager="stPagination">
+      <div class="inline">
+        <em >显示从 <em>{{pager.length > 0 ? pager.lowerBoundIndex + 1 : 0}}</em> - <em>{{pager.higherBoundIndex +1}}</em> of <em>{{pager.length}} </em> 条数据
+        </em>
+      </div>
+      <div class="inline">
+        <button class="btn-sm btn-primary" (click)="pager.selectPreviousPage()" [disabled]="!pager.isPreviousPageEnabled()">上一页</button>
+        <button class="btn-sm btn-primary" (click)="pager.selectNextPage()" [disabled]="!pager.isNextPageEnabled()">下一页</button>
+      </div>
+    </div>
+</div>
