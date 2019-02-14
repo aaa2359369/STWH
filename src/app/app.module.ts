@@ -17,6 +17,8 @@ import { ReportRecordsComponent } from './components/production-plan/report-reco
 import { QRTContentComponent } from './components/production-plan/qrt-content/qrt-content.component';
 import {ProjectManagementComponent} from './components/project-management/project-management.component'
 
+import * as $ from 'jquery';
+
 @NgModule({
   declarations: [
     AppComponent,
