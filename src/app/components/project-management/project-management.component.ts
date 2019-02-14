@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 import {StorageServiceService} from '../../services/storage-service.service'
 
 import {SmartTable, from} from 'smart-table-ng'
-
 
 const providers = [{
   provide: SmartTable,
@@ -26,17 +25,21 @@ const providers = [{
 
 export class ProjectManagementComponent implements OnInit {
 
-  constructor(public storageServiceService:StorageServiceService) { }
+  constructor(public storageServiceService:StorageServiceService, private element:ElementRef) { }
 
   ngOnInit() {
     console.log(this.storageServiceService.GetProjectInfos())
   }
 
   deleteProject() {
-    var chk_value =[];//定义一个数组    
-    $('input[name="checkbox-item"]:checked').each(function(){//遍历每一个名字为nodes的复选框，其中选中的执行函数    
-    	chk_value.push($(this).val());//将选中的值添加到数组chk_value中    
-    });
+    var chk_value =[];//定义一个数组  
+
+    var checkboxs = this.element.nativeElement.querySelectorAll("input[name='checkbox-item']");
+    for (var i = 0; i < checkboxs.length; i++) {
+      if (checkboxs[i].checked) {
+        chk_value.push(checkboxs[i].value);
+      }
+    }
 
     if (chk_value.length < 1) {
       alert('请至少选择一个项目');
@@ -47,17 +50,40 @@ export class ProjectManagementComponent implements OnInit {
   }
 
   selectAll() {
-    if($('#checkbox-id').is(':checked')) {
-      var a = $("input[name='checkbox-item']");
-     for (var index = 0 ;index < a.length; index++){
-       a[index].setAttribute("checked","true")
-     }
-      
-    } else {
-     var a = $("input[name='checkbox-item']");
-      for (var index = 0 ;index < a.length; index++){
-        a[index].removeAttribute("checked");
+    var checkbox = this.element.nativeElement.querySelector("#checkbox-id");
+    if (checkbox.checked) {
+      var checkboxs = this.element.nativeElement.querySelectorAll("input[name='checkbox-item']");
+      for (var i = 0; i < checkboxs.length; i++) {
+        checkboxs[i].checked = true;
       }
+    } else {
+      var checkboxs = this.element.nativeElement.querySelectorAll("input[name='checkbox-item']");
+      for (var i = 0; i < checkboxs.length; i++) {
+        checkboxs[i].checked = false;
+      }
+    } 
+  }
+
+  base64 (content) {
+    return window.btoa(unescape(encodeURIComponent(content)));         
+  }
+
+  exportToExcel(fileName) {
+    var table = this.element.nativeElement.querySelector('#projectInfo');
+    for (var i = 0; i < table.rows.length; i++) {
+      table.rows[i].deleteCell(0);
     }
-   }
+    var excelContent = table.innerHTML;
+    var excelFile = "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:x='urn:schemas-microsoft-com:office:excel' xmlns='http://www.w3.org/TR/REC-html40'>";
+    excelFile += "<head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>{worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--></head>";
+    excelFile += "<body><table>";
+    excelFile += excelContent;
+    excelFile += "</table></body>";
+    excelFile += "</html>";
+    var link = "data:application/vnd.ms-excel;base64," + this.base64(excelFile);
+    var a = document.createElement("a");
+    a.download = fileName+".xlsx";
+    a.href = link;
+    a.click();
+  }
 }

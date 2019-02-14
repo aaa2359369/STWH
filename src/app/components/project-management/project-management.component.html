@@ -8,13 +8,11 @@
       <div class="form-group search-item">
           <label>经理 : </label>
           <input type="text" class="form-control" stFilter='manager'>
-      </div>
-
-     
+      </div>  
 
       <div class="menu">
           <button class="menu-item btn" data-toggle="modal" data-target="#importProject">项目导入</button>
-          <button class="menu-item btn">导出Excel</button>
+          <button class="menu-item btn" (click)="exportToExcel('projectInfo')">导出Excel</button>
           <button class="menu-item btn" (click)="deleteProject()">删除</button>    
       </div>
       <!-- <button class="menu-item btn" data-toggle="modal" data-target="#detail">查看详细</button> -->
@@ -263,7 +261,7 @@
       </div>
   </div>
      
-  <table class="table table-hover">
+  <table class="table table-hover" id="projectInfo">
     <thead>
       <tr>
         <th>
@@ -286,7 +284,7 @@
         </td>
         <td>{{item.value.id}}</td>
         <td><a href="#detail" data-toggle="modal">{{item.value.name}}</a></td>
-        <td>{{item.value.typ}}</td>
+        <td>{{item.value.type}}</td>
         <td>{{item.value.manager}}</td>
         <td>{{item.value.plan_start | date:'yyyy/MM/dd' }}</td>
         <td>{{item.value.plan_end | date:'yyyy/MM/dd'}}</td>
