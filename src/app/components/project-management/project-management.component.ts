@@ -23,6 +23,7 @@ const providers = [{
   styleUrls: ['./project-management.component.css'],
   providers
 })
+
 export class ProjectManagementComponent implements OnInit {
 
   constructor(public storageServiceService:StorageServiceService) { }
@@ -46,11 +47,17 @@ export class ProjectManagementComponent implements OnInit {
   }
 
   selectAll() {
-    
     if($('#checkbox-id').is(':checked')) {
-      $("input[name='checkbox-item']").attr("checked", true); 
+      var a = $("input[name='checkbox-item']");
+     for (var index = 0 ;index < a.length; index++){
+       a[index].setAttribute("checked","true")
+     }
+      
     } else {
-      $("input[name='checkbox-item']").attr("checked", false); 
+     var a = $("input[name='checkbox-item']");
+      for (var index = 0 ;index < a.length; index++){
+        a[index].removeAttribute("checked");
+      }
     }
    }
 }
