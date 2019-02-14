@@ -299,8 +299,8 @@
         </em>
       </div>
       <div class="inline">
-        <button class="btn-sm btn-primary" (click)="pager.selectPreviousPage()" [disabled]="!pager.isPreviousPageEnabled()">上一页</button>
-        <button class="btn-sm btn-primary" (click)="pager.selectNextPage()" [disabled]="!pager.isNextPageEnabled()">下一页</button>
+        <button class="btn-sm" [ngClass]="{'btn-primary': pager.isPreviousPageEnabled()}"  (click)="pager.selectPreviousPage()" [disabled]="!pager.isPreviousPageEnabled()">上一页</button>
+        <button class="btn-sm " [ngClass]="{'btn-primary': pager.isNextPageEnabled()}" (click)="pager.selectNextPage()" [disabled]="!pager.isNextPageEnabled()">下一页</button>
       </div>
     </div>
 </div>
