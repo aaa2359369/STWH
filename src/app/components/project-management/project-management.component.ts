@@ -69,8 +69,10 @@ export class ProjectManagementComponent implements OnInit {
   }
 
   exportToExcel(fileName) {
+    var temp = [];
     var table = this.element.nativeElement.querySelector('#projectInfo');
     for (var i = 0; i < table.rows.length; i++) {
+      temp.push(table.rows[i].cells[0].innerHTML);
       table.rows[i].deleteCell(0);
     }
     var excelContent = table.innerHTML;
@@ -82,8 +84,15 @@ export class ProjectManagementComponent implements OnInit {
     excelFile += "</html>";
     var link = "data:application/vnd.ms-excel;base64," + this.base64(excelFile);
     var a = document.createElement("a");
-    a.download = fileName+".xlsx";
+    a.download = fileName+".xls";
     a.href = link;
     a.click();
+
+    for (var i = 0; i < table.rows.length; i++) {
+      var cell = table.rows[i].insertCell(0);
+      cell.innerHTML = temp[i];
+    }
   }
+
+  
 }
