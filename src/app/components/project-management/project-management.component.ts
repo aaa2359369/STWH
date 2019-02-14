@@ -3,6 +3,7 @@ import {StorageServiceService} from '../../services/storage-service.service'
 
 import {SmartTable, from} from 'smart-table-ng'
 
+
 const providers = [{
   provide: SmartTable,
   useFactory: (storageServiceService: StorageServiceService) => from(storageServiceService.GetProjectInfos(),{
