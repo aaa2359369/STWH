@@ -5,7 +5,7 @@ import {SmartTable, from} from 'smart-table-ng'
 
 const providers = [{
   provide: SmartTable,
-  useFactory: (storageServiceService: StorageServiceService) => from(storageServiceService.GetProjectInfos(),{
+  useFactory: (storageServiceService: StorageServiceService) => from(storageServiceService.GetProductionPlanInfos(),{
     search: {},
     slice: { page: 1, size: 11},
     filter: {},
@@ -17,13 +17,12 @@ const providers = [{
  }];
 
 @Component({
-  selector: 'app-project-management',
-  templateUrl: './project-management.component.html',
-  styleUrls: ['./project-management.component.css'],
+  selector: 'app-production-plan-management',
+  templateUrl: './production-plan-management.component.html',
+  styleUrls: ['./production-plan-management.component.css'],
   providers
 })
-
-export class ProjectManagementComponent implements OnInit {
+export class ProductionPlanManagementComponent implements OnInit {
 
   constructor(public storageServiceService:StorageServiceService, private element:ElementRef) { }
 
@@ -93,6 +92,4 @@ export class ProjectManagementComponent implements OnInit {
       cell.innerHTML = temp[i];
     }
   }
-
-  
 }

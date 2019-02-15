@@ -5,9 +5,12 @@ import {DefaultPageComponent} from './components/default-page/default-page.compo
 
 import {ProductionPlanComponent} from './components/production-plan/production-plan.component'
 import { ProjectManagementComponent } from './components/project-management/project-management.component';
+import { ProductionPlanManagementComponent } from './components/production-plan-management/production-plan-management.component';
 
 
 const routes: Routes = [{
+  path:'productionPlanManagement',component:ProductionPlanManagementComponent
+},{
   path:'projectManagement',component:ProjectManagementComponent
 },{
   path:'index',component:DefaultPageComponent

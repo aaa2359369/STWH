@@ -10,11 +10,9 @@
           <input type="text" class="form-control" stFilter='manager'>
       </div>  
 
-      <div class="menu">
-          <button class="menu-item btn" data-toggle="modal" data-target="#importProject">项目导入</button>
-          <button class="menu-item btn" (click)="exportToExcel('projectInfo')">导出Excel</button>
-          <button class="menu-item btn" (click)="deleteProject()">删除</button>    
-      </div>
+      <button class="menu-item btn" style="margin-left: 550px" data-toggle="modal" data-target="#importProject">项目导入</button>
+      <button class="menu-item btn" (click)="exportToExcel('projectInfo')">导出Excel</button>
+      <button class="menu-item btn" (click)="deleteProject()">删除</button>    
       <!-- <button class="menu-item btn" data-toggle="modal" data-target="#detail">查看详细</button> -->
 
       <div class="modal fade" id="importProject">
@@ -294,13 +292,13 @@
     </tbody>
   </table>
   <div stPagination #pager="stPagination">
-      <div class="inline">
-        <em >显示从 <em>{{pager.length > 0 ? pager.lowerBoundIndex + 1 : 0}}</em> - <em>{{pager.higherBoundIndex +1}}</em> of <em>{{pager.length}} </em> 条数据
-        </em>
-      </div>
-      <div class="inline">
-        <button class="btn-sm" [ngClass]="{'btn-primary': pager.isPreviousPageEnabled()}"  (click)="pager.selectPreviousPage()" [disabled]="!pager.isPreviousPageEnabled()">上一页</button>
-        <button class="btn-sm " [ngClass]="{'btn-primary': pager.isNextPageEnabled()}" (click)="pager.selectNextPage()" [disabled]="!pager.isNextPageEnabled()">下一页</button>
-      </div>
+    <div class="inline">
+      <em >显示从 <em>{{pager.length > 0 ? pager.lowerBoundIndex + 1 : 0}}</em> - <em>{{pager.higherBoundIndex +1}}</em> of <em>{{pager.length}} </em> 条数据
+      </em>
     </div>
+    <div class="inline">
+      <button class="btn-sm" [ngClass]="{'btn-primary': pager.isPreviousPageEnabled()}"  (click)="pager.selectPreviousPage()" [disabled]="!pager.isPreviousPageEnabled()">上一页</button>
+      <button class="btn-sm " [ngClass]="{'btn-primary': pager.isNextPageEnabled()}" (click)="pager.selectNextPage()" [disabled]="!pager.isNextPageEnabled()">下一页</button>
+    </div>
+  </div>
 </div>

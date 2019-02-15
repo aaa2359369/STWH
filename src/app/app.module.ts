@@ -18,6 +18,7 @@ import { QRTContentComponent } from './components/production-plan/qrt-content/qr
 import {ProjectManagementComponent} from './components/project-management/project-management.component'
 
 import * as $ from 'jquery';
+import { ProductionPlanManagementComponent } from './components/production-plan-management/production-plan-management.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import * as $ from 'jquery';
     DispatchedWorkersRecordComponent,
     ReportRecordsComponent,
     QRTContentComponent,
-    ProjectManagementComponent
+    ProjectManagementComponent,
+    ProductionPlanManagementComponent
   ],
   imports: [
     BrowserModule,
